@@ -37,7 +37,7 @@
 <body>
 
     <h1>Interactive URL Iframe Viewer</h1>
-    <input type="text" id="urlInput" placeholder="Enter a URL (e.g., https://example.com)">
+    <input type="text" id="urlInput" placeholder="Enter a URL (e.g., example.com)">
     <button id="loadButton">Load URL</button>
 
     <div id="iframeContainer">
@@ -46,14 +46,19 @@
 
     <script>
         document.getElementById('loadButton').addEventListener('click', function() {
-            const urlInput = document.getElementById('urlInput').value;
+            const urlInput = document.getElementById('urlInput').value.trim();
             const iframe = document.getElementById('urlIframe');
             const iframeContainer = document.getElementById('iframeContainer');
 
-            // Validate the URL
+            // Validate the URL and add protocol if missing
             if (urlInput) {
+                let url = urlInput;
+                if (!/^https?:\/\//i.test(url)) {
+                    url = 'https://' + url; // Default to HTTPS
+                }
+
                 // Set the iframe source to the input URL
-                iframe.src = urlInput;
+                iframe.src = url;
                 iframeContainer.style.display = 'block'; // Show the iframe container
             } else {
                 alert('Please enter a valid URL.');
