@@ -1,1 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funny Unit Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .converter {
+      max-width: 400px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .converter label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .converter select,
+    .converter input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .converter button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .converter button:hover {
+      background: #0056b3;
+    }
+    .result {
+      margin-top: 15px;
+      font-size: 1.2em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Funny Unit Converter</h1>
+  <div class="converter">
+    <label for="unitType">Select Unit Type:</label>
+    <select id="unitType" onchange="populateUnits()">
+      <option value="length">Length</option>
+      <option value="time">Time</option>
+      <option value="mass">Mass</option>
+    </select>
+    
+    <label for="inputValue">Value:</label>
+    <input type="number" id="inputValue" placeholder="Enter value">
 
+    <label for="fromUnit">From:</label>
+    <select id="fromUnit"></select>
+
+    <label for="toUnit">To:</label>
+    <select id="toUnit"></select>
+
+    <button onclick="convertUnits()">Convert</button>
+    <div class="result" id="conversionResult"></div>
+  </div>
+
+  <script>
+    // Conversion rates for unusual units
+    const conversionRates = {
+      length: {
+        meter: 1,
+        lightnanoseconds: 0.299792458, // meters
+        lightpicoseconds: 0.000299792458, // meters
+        microeverests: 0.008848, // meters
+        furlongs: 201.168, // meters
+        potrzebies: 0.001, // meters (example)
+      },
+      time: {
+        second: 1,
+        beard_fortnights: 1209600, // seconds
+        beard_seconds: 1.5, // seconds
+        fortnights: 1209600, // seconds
+      },
+      mass: {
+        kilogram: 1,
+        firkins: 40.8233133, // kilograms
+      }
+    };
+
+    // Populate units based on selected unit type
+    function populateUnits() {
+      const unitType = document.getElementById('unitType').value;
+      const fromUnit = document.getElementById('fromUnit');
+      const toUnit = document.getElementById('toUnit');
+
+      // Clear existing options
+      fromUnit.innerHTML = '';
+      toUnit.innerHTML = '';
+
+      // Populate new options
+      for (const unit in conversionRates[unitType]) {
+        const optionFrom = document.createElement('option');
+        const optionTo = document.createElement('option');
+        optionFrom.value = unit;
+        optionFrom.textContent = unit;
+        optionTo.value = unit;
+        optionTo.textContent = unit;
+        fromUnit.appendChild(optionFrom);
+        toUnit.appendChild(optionTo);
+      }
+    }
+
+    // Perform unit conversion
+    function convertUnits() {
+      const unitType = document.getElementById('unitType').value;
+      const inputValue = parseFloat(document.getElementById('inputValue').value);
+      const fromUnit = document.getElementById('fromUnit').value;
+      const toUnit = document.getElementById('toUnit').value;
+
+      if (isNaN(inputValue)) {
+        document.getElementById('conversionResult').innerText = 'Please enter a valid number.';
+        return;
+      }
+
+      const fromRate = conversionRates[unitType][fromUnit];
+      const toRate = conversionRates[unitType][toUnit];
+      const convertedValue = (inputValue * fromRate) / toRate;
+
+      document.getElementById('conversionResult').innerText = 
+        `${inputValue} ${fromUnit} is equal to ${convertedValue.toFixed(4)} ${toUnit}.`;
+    }
+
+    // Initialize units on page load
+    window.onload = populateUnits;
+  </script>
+</body>
+</html>
