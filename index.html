@@ -6,18 +6,6 @@
   <title>Unusual Units</title>
   <style>
     :root {
-      --background-color: #ffffff; /* Light background */
-      --text-color: #121212; /* Dark text */
-      --container-background: #f9f9f9; /* Light container background */
-      --input-background: #ffffff; /* Input background */
-      --button-background: #007bff; /* Button background */
-      --button-hover-background: #0056b3; /* Button hover background */
-      --label-color: #333; /* Label color */
-      --footer-background: #f4f4f9; /* Footer background */
-      --link-color: #007bff; /* Link color */
-    }
-
-    [data-theme="dark"] {
       --background-color: #121212; /* Dark background */
       --text-color: #e0e0e0; /* Light text */
       --container-background: #1e1e1e; /* Darker container background */
@@ -48,7 +36,7 @@
       background: var(--container-background);
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .converter label {
@@ -63,7 +51,7 @@
       width: 100%;
       padding: 10px;
       margin-bottom: 15px;
-      border: 1px solid #ccc;
+      border: 1px solid #424242;
       border-radius: 4px;
       background-color: var(--input-background);
       color: var(--text-color);
@@ -95,7 +83,7 @@
       background: var(--container-background);
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     footer {
@@ -114,13 +102,9 @@
     footer a:hover {
       text-decoration: underline;
     }
-
-    .theme-toggle {
-      margin-top: 10px;
-    }
   </style>
 </head>
-<body data-theme="light">
+<body>
   <h1>Unusual Unit Converter</h1>
   <div class="converter">
     <label for="unitType">Select Unit Type:</label>
@@ -158,9 +142,6 @@
     <p>&copy; 2025 Ari Cummings. Built with ❤️ and open source. Check out my 
       <a href="https://github.com/ariplayz" target="_blank">GitHub Profile</a>.
     </p>
-    <div class="theme-toggle">
-      <button onclick="toggleTheme()">Toggle Dark/Light Mode</button>
-    </div>
   </footer>
 
   <script>
@@ -169,36 +150,36 @@
       length: {
         meter: 1,
         centimeter: 0.01,
-        lightnanoseconds: 0.299792458, // meters
-        lightpicoseconds: 0.000299792458, // meters
-        microeverests: 0.008848, // meters
-        furlongs: 201.168, // meters
-        beard_fortnights: 0.012096, // meters
-        beard_seconds: 0.00000001, // meters
-        potrzebies: 0.002263348, // meters (example)
-        parsec: 30857000000000000, // meters
-        attoparsec: 0.03086, // meters
-        mickey: 600000, // meters
-        muggeseggele: 0.0000381, // meters,
+        lightnanoseconds: 0.299792458,
+        lightpicoseconds: 0.000299792458,
+        microeverests: 0.008848,
+        furlongs: 201.168,
+        beard_fortnights: 0.012096,
+        beard_seconds: 0.00000001,
+        potrzebies: 0.002263348,
+        parsec: 30857000000000000,
+        attoparsec: 0.03086,
+        mickey: 600000,
+        muggeseggele: 0.0000381,
         hand: 0.10
       },
       time: {
         second: 1,
-        fortnights: 1209600 // seconds
+        fortnights: 1209600
       },
       mass: {
         kilogram: 1,
-        firkins: 40.8233133, // kilograms
-        blintz: 0.9472, // kilograms
+        firkins: 40.8233133,
+        blintz: 0.9472,
         "eV/c2": 0.0000009472645
       },
       volume: {
         liter: 1,
-        milliliter: 0.001, // liters
-        gallon: 3.78541, // liters
+        milliliter: 0.001,
+        gallon: 3.78541,
         pony: 0.025,
-        hogshead: 238.481, // liters
-        shot: 0.0443603 // liters
+        hogshead: 238.481,
+        shot: 0.0443603
       }
     };
 
@@ -247,14 +228,6 @@
 
     // Initialize units on page load
     window.onload = populateUnits;
-
-    // Toggle between light and dark themes
-    function toggleTheme() {
-      const body = document.body;
-      const currentTheme = body.getAttribute("data-theme");
-      const newTheme = currentTheme === "light" ? "dark" : "light";
-      body.setAttribute("data-theme", newTheme);
-    }
   </script>
 </body>
 </html>
