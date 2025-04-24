@@ -63,6 +63,7 @@
       <option value="length">Length</option>
       <option value="time">Time</option>
       <option value="mass">Mass</option>
+      <option value="volume">Volume</option> <!-- Added Volume -->
     </select>
     
     <label for="inputValue">Amount:</label>
@@ -94,7 +95,8 @@
         parsec: 30857000000000000, // meters
         attoparsec: 0.03086, // meters
         mickey: 600000, // meters
-        muggeseggele: 0.0000381 // meters
+        muggeseggele: 0.0000381, // meters
+        hand: 0.10
       },
       time: {
         second: 1,
@@ -103,7 +105,16 @@
       mass: {
         kilogram: 1,
         firkins: 40.8233133, // kilograms
-        blintz: 0.9472 // kilograms
+        blintz: 0.9472, // kilograms
+        "eV/c2": 0.0000009472645
+      },
+      volume: {
+        liter: 1,
+        milliliter: 0.001, // liters
+        gallon: 3.78541, // liters
+        pony: 0.025,
+        hogshead: 238.481, // liters
+        shot: 0.0443603 // liters
       }
     };
 
