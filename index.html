@@ -53,6 +53,28 @@
       font-size: 1.2em;
       color: #333;
     }
+    .contact {
+      margin: 40px auto;
+      text-align: center;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f4f4f9;
+      color: #555;
+    }
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -63,7 +85,7 @@
       <option value="length">Length</option>
       <option value="time">Time</option>
       <option value="mass">Mass</option>
-      <option value="volume">Volume</option> <!-- Added Volume -->
+      <option value="volume">Volume</option>
     </select>
     
     <label for="inputValue">Amount:</label>
@@ -79,15 +101,21 @@
     <div class="result" id="conversionResult"></div>
   </div>
 
-<section class="contact">
-<h2>Contact Me</h2>
-<p>
-I'm exited to work with more people and learn new things, so feel free to reach out here
-<a href="mailto:ari@aricummings.com?subject=Hello%20there&body=I%20wanted%20to%20reach%20out%20to%20you.">ari@aricummings.com</a>
- or connect with me on 
-<a href="https://discordapp.com/users/708011888486645833" target="_blank">Discord</a>
-</p>
-</section>
+  <section class="contact">
+    <h2>Contact Me</h2>
+    <p>
+      I'm excited to work with more people and learn new things, so feel free to reach out here
+      <a href="mailto:ari@aricummings.com?subject=Hello%20there&body=I%20wanted%20to%20reach%20out%20to%20you.">ari@aricummings.com</a>
+      or connect with me on 
+      <a href="https://discordapp.com/users/708011888486645833" target="_blank">Discord</a>.
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Ari Cummings. Built with ❤️ and open source. Check out my 
+      <a href="https://github.com/ariplayz" target="_blank">GitHub Profile</a>.
+    </p>
+  </footer>
 
   <script>
     // Conversion rates for unusual units
@@ -105,7 +133,7 @@ I'm exited to work with more people and learn new things, so feel free to reach 
         parsec: 30857000000000000, // meters
         attoparsec: 0.03086, // meters
         mickey: 600000, // meters
-        muggeseggele: 0.0000381, // meters
+        muggeseggele: 0.0000381, // meters,
         hand: 0.10
       },
       time: {
